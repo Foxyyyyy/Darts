@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dartboard = document.getElementById("dartboard");
     const scoreDisplay = document.getElementById("score-value");
     const dartsThrownDisplay = document.getElementById("darts-value");
-    const missButton = document.getElementById("miss-btn");
+    const missButton = document.getElementById("missButton");
 
     let totalScore = 0;
     let dartsThrown = 0;
@@ -26,11 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Event listener for the miss button
+    // Event listener for "Miss" button
     missButton.addEventListener("click", () => {
-        dartsThrown++;
+        dartsThrown++; // Increment darts thrown
+        // No change in totalScore because it's a miss
         updateScoreBoard();
     });
+
 
     // Initialize the scoreboard
     updateScoreBoard();
