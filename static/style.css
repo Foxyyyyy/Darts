@@ -1,0 +1,115 @@
+body{
+    background-color: rgb(95, 92, 92)
+}
+
+.clickableDartboard {
+    display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  height: 100vh;           /* Full viewport height */
+  scale: 200%;
+}
+
+#score-board {
+    margin-top: 20px;             /* Space above the scoreboard */
+    background-color: rgba(0, 0, 0, 0.85); /* Black with strong opacity */
+    color: #ffffff;               /* Bright white text */
+    padding: 30px;                /* Ample padding for a bigger box */
+    border-radius: 20px;          /* Smooth rounded corners */
+    text-align: center;           /* Center-align text */
+    width: 450px;                 /* Larger width for the scoreboard */
+    font-family: 'Anton', sans-serif; /* Strong and modern font from Google Fonts */
+    font-size: 1.6em;             /* Bigger font size */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    line-height: 1.8;             /* Space between lines for readability */
+    margin-left: 50px;            /* Center horizontally */
+    margin-right: auto;           /* Center horizontally */
+  }
+  
+  #miss-btn {
+    background-color: #444;     /* Dark background */
+    color: #fff;                /* White text for contrast */
+    padding: 15px 25px;         /* Padding for a button-like appearance */
+    border-radius: 10px;        /* Rounded corners */
+    font-family: 'Anton', sans-serif; /* Strong and modern font from Google Fonts */
+    font-size: 1.6em;             /* Bigger font size */
+    text-align: center;         /* Center the text */
+    width: 450px;                 /* Larger width for the scoreboard */
+    margin-left: 50px;            /* Center horizontally */
+
+
+}
+
+#s1:hover,
+#s2:hover,
+#s3:hover,
+#s4:hover,
+#s5:hover,
+#s6:hover,
+#s7:hover,
+#s8:hover,
+#s9:hover,
+#s10:hover,
+#s11:hover,
+#s12:hover,
+#s13:hover,
+#s14:hover,
+#s15:hover,
+#s16:hover,
+#s17:hover,
+#s18:hover,
+#s19:hover,
+#s20:hover {
+    fill: yellow; /* Changes the fill color to yellow on hover */
+}
+
+#d1:hover,
+#d2:hover,
+#d3:hover,
+#d4:hover,
+#d5:hover,
+#d6:hover,
+#d7:hover,
+#d8:hover,
+#d9:hover,
+#d10:hover,
+#d11:hover,
+#d12:hover,
+#d13:hover,
+#d14:hover,
+#d15:hover,
+#d16:hover,
+#d17:hover,
+#d18:hover,
+#d19:hover,
+#d20:hover {
+  fill: yellow; /* Changes the fill color to yellow on hover */
+}
+
+#t1:hover,
+#t2:hover,
+#t3:hover,
+#t4:hover,
+#t5:hover,
+#t6:hover,
+#t7:hover,
+#t8:hover,
+#t9:hover,
+#t10:hover,
+#t11:hover,
+#t12:hover,
+#t13:hover,
+#t14:hover,
+#t15:hover,
+#t16:hover,
+#t17:hover,
+#t18:hover,
+#t19:hover,
+#t20:hover {
+  fill: yellow; /* Changes the fill color to yellow on hover */
+}
+
+#Outer:hover,
+#Bull:hover {
+  fill: yellow; /* Changes the fill color to yellow on hover */
+}
