@@ -6,12 +6,10 @@ body {
   display: flex;
   justify-content: center; /* Centers horizontally */
   align-items: center;     /* Centers vertically */
-  height: 100vh;           /* Full viewport height */
-  width: 100vw;            /* Full viewport width */
   max-width: 900px;       /* Larger maximum width */
   max-height: 1000px;      /* Larger maximum height */
   margin: auto;            /* Center on the screen */
-  margin-top: 100px;
+  margin-top: 12%;
   transform: scale(2);     /* Increase the scale for a bigger appearance */
 }
 
@@ -112,7 +110,7 @@ body {
   margin-right: 300px;
   position: relative; /* Ensure proper stacking */
   position: absolute;           /* Position it absolutely */
-  top: 50%;                     /* Center vertically */
+  top: 45%;                     /* Center vertically */
   right: 0;                      /* Align to the left of the screen */
   transform: translateY(-50%);  /* Adjust for vertical centering */
 }
