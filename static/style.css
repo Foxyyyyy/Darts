@@ -1,5 +1,5 @@
-body{
-    background-color: rgb(95, 92, 92)
+body {
+  background-color: rgb(95, 92, 92);
 }
 
 .clickableDartboard {
@@ -15,74 +15,133 @@ body{
   transform: scale(2);     /* Increase the scale for a bigger appearance */
 }
 
-  
+/* Main scoreboard container */
 #score-board {
   background-color: rgba(0, 0, 0, 0.85); /* Black with strong opacity */
-  color: #ffffff;               /* Bright white text */
-  padding: 30px;                /* Ample padding for a bigger box */
-  border-radius: 20px;          /* Smooth rounded corners */
-  text-align: center;           /* Center-align text */
-  width: 450px;                 /* Larger width for the scoreboard */
+  color: #ffffff; /* Bright white text */
+  padding: 30px; /* Ample padding for a bigger box */
+  border-radius: 20px; /* Smooth rounded corners */
+  text-align: center; /* Center-align text */
+  width: 450px; /* Larger width for the scoreboard */
   font-family: 'Anton', sans-serif; /* Strong and modern font from Google Fonts */
-  font-size: 1.6em;             /* Bigger font size */
+  font-size: 1.6em; /* Bigger font size */
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
-  line-height: 1.8;             /* Space between lines for readability */
-  position: absolute;           /* Position it absolutely */
-  top: 20%;                     /* Center vertically */
-  left: 0;                      /* Align to the left of the screen */
-  transform: translateY(-50%);  /* Adjust for vertical centering */
+  line-height: 1.8; /* Space between lines for readability */
+  position: absolute; /* Position it absolutely */
+  top: 45%; /* Center vertically */
+  left: 0; /* Align to the left of the screen */
+  transform: translateY(-50%); /* Adjust for vertical centering */
   margin-left: 50px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+  overflow: hidden; /* Ensures no overflow content is visible */
+}
+
+/* Expanded stats section */
+#extra-stats {
+  background-color: rgba(211, 211, 211, 0.9); /* Light grey background */
+  color: #000; /* Darker text for contrast */
+  padding: 15px; /* Padding for extra stats */
+  border-radius: 10px; /* Smooth rounded corners */
+  margin-top: 10px; /* Space below main stats */
+  font-size: 0.9em; /* Smaller font for extra stats */
+  text-align: left; /* Align extra stats to the left */
+  max-height: 0; /* Collapsed by default */
+  opacity: 0; /* Fully transparent by default */
+  overflow: hidden; /* Hide overflowing content */
+  transition: all 0.5s ease-in-out; /* Smooth transition for height and opacity */
+}
+
+/* Individual stat rows */
+.stat-row {
+  display: flex; /* Flex layout for alignment */
+  justify-content: space-between; /* Align content on both ends */
+  align-items: center; /* Align items vertically */
+}
+
+/* Reset container */
+#reset-container {
+  display: flex; /* Flex layout for centering */
+  justify-content: center; /* Center-align the button */
+  margin-top: 20px; /* Add spacing above the button */
+  padding-top: 10px; /* Ensure spacing between stats and button */
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Add subtle separator */
+}
+
+/* Reset Stats button */
+#reset-stats-btn {
+  padding: 10px 20px; /* Comfortable padding */
+  font-size: 0.9em; /* Adjust font size */
+  background-color: #ff4c4c; /* Bright red button for visibility */
+  color: white; /* White text on the button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners */
+  cursor: pointer; /* Pointer cursor for interaction */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+#reset-stats-btn:hover {
+  background-color: #ff1f1f; /* Darker red on hover */
+}
+
+#reset-stats-btn:focus {
+  outline: 2px solid #ff4c4c; /* Focus outline for accessibility */
+  outline-offset: 2px;
+}
+
+/* Hover effect for expanded stats */
+#score-board:hover #extra-stats {
+  max-height: 400px; /* Adjust height to fit content and button */
+  opacity: 1; /* Make it fully visible */
 }
 
 
-  button {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.6em;
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
-    padding: 0.7em 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center content */
-    border: none;
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    margin-right: 300px;
-    position: relative; /* Ensure proper stacking */
-    position: absolute;           /* Position it absolutely */
-    top: 50%;                     /* Center vertically */
-    right: 0;                      /* Align to the left of the screen */
-    transform: translateY(-50%);  /* Adjust for vertical centering */
-  }
-  
-  button svg {
-    display: block;
-    transform: translateX(-100%); /* Start outside the button */
-    transition: transform 0.3s ease-in-out;
-    pointer-events: none; /* Prevent svg from "stealing" hover */
-    margin-left: 10px;
-  }
-  
-  button span {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  }
-  
-  button:hover span {
-    transform: translateX(200%);
-    opacity: 0;
-  }
-  
-  button:hover svg {
-    transform: translateX(100%);
-  }
-  
-  button:active {
-    transform: scale(0.95);
-  }
-  
-  
+
+button {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.6em;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 0.7em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content */
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-right: 300px;
+  position: relative; /* Ensure proper stacking */
+  position: absolute;           /* Position it absolutely */
+  top: 50%;                     /* Center vertically */
+  right: 0;                     /* Align to the right of the screen */
+  transform: translateY(-50%);  /* Adjust for vertical centering */
+}
+
+button svg {
+  display: block;
+  transform: translateX(-100%); /* Start outside the button */
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none; /* Prevent svg from "stealing" hover */
+  margin-left: 10px;
+}
+
+button span {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+button:hover span {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+button:hover svg {
+  transform: translateX(100%);
+}
+
+button:active {
+  transform: scale(0.95);
+}
 
 #s1:hover,
 #s2:hover,
@@ -103,10 +162,7 @@ body{
 #s17:hover,
 #s18:hover,
 #s19:hover,
-#s20:hover {
-    fill: yellow; /* Changes the fill color to yellow on hover */
-}
-
+#s20:hover,
 #d1:hover,
 #d2:hover,
 #d3:hover,
@@ -126,10 +182,7 @@ body{
 #d17:hover,
 #d18:hover,
 #d19:hover,
-#d20:hover {
-  fill: yellow; /* Changes the fill color to yellow on hover */
-}
-
+#d20:hover,
 #t1:hover,
 #t2:hover,
 #t3:hover,
@@ -149,10 +202,7 @@ body{
 #t17:hover,
 #t18:hover,
 #t19:hover,
-#t20:hover {
-  fill: yellow; /* Changes the fill color to yellow on hover */
-}
-
+#t20:hover,
 #Outer:hover,
 #Bull:hover {
   fill: yellow; /* Changes the fill color to yellow on hover */

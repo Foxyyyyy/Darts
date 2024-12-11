@@ -33,6 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
         updateScoreBoard();
     });
 
+    document.getElementById("reset-stats-btn").addEventListener("click", function () {
+        // Reset all stats
+        document.getElementById("score-value").textContent = "0";
+        document.getElementById("darts-value").textContent = "0";
+        document.getElementById("average-value").textContent = "0";
+        document.getElementById("one80-value").textContent = "0";
+        document.getElementById("highest-average-value").textContent = "0";
+        document.getElementById("current-average-value").textContent = "0";
+        document.getElementById("highest-value").textContent = "0";
+        document.getElementById("lowest-value").textContent = "0";
+        alert("Stats have been reset!");
+      });
+
 
     // Initialize the scoreboard
     updateScoreBoard();
