@@ -60,7 +60,6 @@ body {
 
 /* Reset container */
 #reset-container {
-  display: flex; /* Flex layout for centering */
   justify-content: center; /* Center-align the button */
   margin-top: 20px; /* Add spacing above the button */
   padding-top: 10px; /* Ensure spacing between stats and button */
@@ -96,7 +95,7 @@ body {
 
 
 
-button {
+#missButton {
   font-family: 'Anton', sans-serif;
   font-size: 1.6em;
   background: rgba(0, 0, 0, 0.85);
@@ -114,11 +113,11 @@ button {
   position: relative; /* Ensure proper stacking */
   position: absolute;           /* Position it absolutely */
   top: 50%;                     /* Center vertically */
-  right: 0;                     /* Align to the right of the screen */
+  right: 0;                      /* Align to the left of the screen */
   transform: translateY(-50%);  /* Adjust for vertical centering */
 }
 
-button svg {
+#missButton svg {
   display: block;
   transform: translateX(-100%); /* Start outside the button */
   transition: transform 0.3s ease-in-out;
@@ -126,20 +125,20 @@ button svg {
   margin-left: 10px;
 }
 
-button span {
+#missButton span {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-button:hover span {
+#missButton:hover span {
   transform: translateX(200%);
   opacity: 0;
 }
 
-button:hover svg {
+#missButton:hover svg {
   transform: translateX(100%);
 }
 
-button:active {
+#missButton:active {
   transform: scale(0.95);
 }
 
