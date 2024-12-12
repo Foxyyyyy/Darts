@@ -9,6 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const highestAverageDisplay = document.getElementById("highest-value");
     const lowestAverageDisplay = document.getElementById("lowest-value");
     const missButton = document.getElementById("missButton");
+    const pinButton = document.getElementById("pin-button");
+    const scoreBoard = document.getElementById("score-board");
+    const extraStats = document.getElementById("extra-stats");
+
+    let isPinned = false;
+
+    // Toggle pin button functionality
+    pinButton.addEventListener("click", () => {
+        isPinned = !isPinned; // Toggle the pinned state
+
+        if (isPinned) {
+            pinButton.style.fill = "#000000"; // Keep the button black
+            scoreBoard.style.maxHeight = "460px"; // Ensure the stats stay expanded
+            scoreBoard.style.opacity = "1"; // Ensure visibility
+            scoreBoard.style.overflow = "visible"; // Ensure nothing is cut off
+            extraStats.style.maxHeight = "400px"; // Expand extra stats
+            extraStats.style.opacity = "1"; // Make it visible
+         }
+         else {
+            pinButton.style.fill = "#8f8a8a"; // Revert to default color
+            scoreBoard.style.removeProperty("max-height"); // Allow hover to control max height
+            scoreBoard.style.removeProperty("opacity"); // Allow hover to control opacity
+            scoreBoard.style.removeProperty("overflow"); // Reset overflow
+            extraStats.style.removeProperty("max-height"); // Allow hover to control extra stats
+            extraStats.style.removeProperty("opacity"); // Reset to hover behavior
+        }
+    });
 
     let totalScore = 0;
     let dartsThrown = 0;

@@ -31,7 +31,6 @@ body {
   transform: translateY(-50%); /* Adjust for vertical centering */
   margin-left: 50px;
   transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
-  overflow: hidden; /* Ensures no overflow content is visible */
 }
 
 /* Expanded stats section */
@@ -58,10 +57,12 @@ body {
 
 /* Reset container */
 #reset-container {
-  justify-content: center; /* Center-align the button */
-  margin-top: 20px; /* Add spacing above the button */
-  padding-top: 10px; /* Ensure spacing between stats and button */
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Add subtle separator */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Push items to the far ends */
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Reset Stats button */
@@ -138,6 +139,18 @@ body {
 
 #missButton:active {
   transform: scale(0.95);
+}
+
+#pin-button {
+  margin-left: 0; 
+  margin-top: 11px;
+  fill: #8f8a8a; /* Replace with your desired color (e.g., orange) */
+  stroke:#000000;
+  stroke-width: 0.5px;
+}
+
+#pin-button:hover {
+  fill:#000000;
 }
 
 #s1:hover,
