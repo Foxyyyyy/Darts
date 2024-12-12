@@ -68,7 +68,7 @@ body {
 #reset-stats-btn {
   padding: 10px 20px; /* Comfortable padding */
   font-size: 0.9em; /* Adjust font size */
-  background-color: #ff4c4c; /* Bright red button for visibility */
+  background-color: #7c7878; /* Bright red button for visibility */
   color: white; /* White text on the button */
   border: none; /* Remove default border */
   border-radius: 5px; /* Slightly rounded corners */
@@ -77,11 +77,11 @@ body {
 }
 
 #reset-stats-btn:hover {
-  background-color: #ff1f1f; /* Darker red on hover */
+  background-color: #000000; /* Darker red on hover */
 }
 
 #reset-stats-btn:focus {
-  outline: 2px solid #ff4c4c; /* Focus outline for accessibility */
+  outline: 2px solid #ffffff; /* Focus outline for accessibility */
   outline-offset: 2px;
 }
 
