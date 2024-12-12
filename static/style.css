@@ -68,7 +68,7 @@ body {
 #reset-stats-btn {
   padding: 10px 20px; /* Comfortable padding */
   font-size: 0.9em; /* Adjust font size */
-  background-color: #7c7878; /* Bright red button for visibility */
+  background-color: #000000;  
   color: white; /* White text on the button */
   border: none; /* Remove default border */
   border-radius: 5px; /* Slightly rounded corners */
@@ -77,7 +77,7 @@ body {
 }
 
 #reset-stats-btn:hover {
-  background-color: #000000; /* Darker red on hover */
+  background-color: #7c7878; 
 }
 
 #reset-stats-btn:focus {
