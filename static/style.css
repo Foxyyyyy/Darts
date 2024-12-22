@@ -217,3 +217,61 @@ body {
 #Bull:hover {
   fill: yellow; /* Changes the fill color to yellow on hover */
 }
+
+
+
+
+
+/* Style for the alert box container */
+.alert-box {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the overlay */
+.alert-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Style for the message */
+.alert-box p {
+    font-size: 18px;
+    color: #000000;
+    margin: 0 0 20px;
+}
+
+/* Style for the OK button */
+.alert-box button {
+    background-color: #cec3c3;
+    color: rgb(121, 119, 119);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.alert-box button:hover {
+    background-color: #8d8787;
+}
+
+button#closeAlert {
+  color: #000;
+}
