@@ -275,3 +275,156 @@ body {
 button#closeAlert {
   color: #000;
 }
+
+/* Menu Container */
+.menu {
+  background-color: #444;
+  color: #fff;
+  width: 500px;
+  max-height: 90vh; /* Limit the height to 90% of the viewport */
+  overflow-y: auto; /* Enable scrolling if content exceeds */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Arial, sans-serif;
+}
+
+
+/* Hidden and Visible States */
+.menu.hidden {
+  display: none;
+}
+
+.menu.visible {
+  display: block;
+}
+
+/* Header Section */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  color: red;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Game Type Section */
+.game-type-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: 10px;
+}
+
+.game-type-options button {
+  background-color: #666;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.game-type-options button.active {
+  background-color: #fff;
+  color: #444;
+}
+
+.game-type-options button:hover {
+  background-color: #888;
+}
+
+/* Players selection*/
+.players-section {
+  margin: 50px;
+  text-align: center;
+  padding: 10px; /* Add padding for better spacing */
+  margin-top: 20px; /* Add margin for separation */
+  width: 100%; /* Ensure it spans the container width */
+}
+
+.player-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Allows buttons to wrap if they don't fit */
+  margin-top: 10px;
+}
+
+.player-options button {
+  background-color: #666;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.player-options button.active {
+  background-color: #fff;
+  color: #444;
+}
+
+.player-options button:hover {
+  background-color: #888;
+}
+
+
+/* Start Game Button */
+.start-game-button {
+  background-color: #ddd;
+  color: #444;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; /* Full width button */
+}
+
+.start-game-button:hover {
+  background-color: #666;
+}
+
+/* Floating Start Game Button (Global) */
+.start-game-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.start-game-button:hover {
+  background-color: #666;
+}
+
+/* Additional Spacing for Sections */
+.toggle-section,
+.players-section {
+  margin-top: 20px;
+}

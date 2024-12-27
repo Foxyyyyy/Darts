@@ -1,40 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const dartboard = document.getElementById("dartboard");
+    // DOM Elements
+    const setupGameMenu = document.getElementById("setupGameMenu");
+    const startGameButton = document.getElementById("startGameButton");
+    const closeMenuButton = document.getElementById("closeMenuButton");
+    const gameTypeButtons = document.querySelectorAll(".game-type-option");
+    const startGameSetupButton = document.getElementById("startGameSetupButton");
     const scoreDisplay = document.getElementById("score-value");
     const dartsThrownDisplay = document.getElementById("darts-value");
     const averageDisplay = document.getElementById("average-value");
     const one80Display = document.getElementById("one80-value");
     const highest3DartDisplay = document.getElementById("highest-average-value");
-    const lastVisitDisplay = document.getElementById("current-average-value"); // "Last Visit"
+    const lastVisitDisplay = document.getElementById("current-average-value");
     const highestAverageDisplay = document.getElementById("highest-value");
     const lowestAverageDisplay = document.getElementById("lowest-value");
+    const dartboard = document.getElementById("dartboard");
     const missButton = document.getElementById("missButton");
-    const pinButton = document.getElementById("pin-button");
-    const scoreBoard = document.getElementById("score-board");
-    const extraStats = document.getElementById("extra-stats");
+    const playerButtons = document.getElementById("player-option")
 
-    let isPinned = false;
+    let selectedGameType = null;
 
-    // Pin button functionality
-    pinButton.addEventListener("click", () => {
-        isPinned = !isPinned;
-        if (isPinned) {
-            pinButton.style.fill = "#000000";
-            scoreBoard.style.maxHeight = "460px";
-            scoreBoard.style.opacity = "1";
-            scoreBoard.style.overflow = "visible";
-            extraStats.style.maxHeight = "400px";
-            extraStats.style.opacity = "1";
-        } else {
-            pinButton.style.fill = "#8f8a8a";
-            scoreBoard.style.removeProperty("max-height");
-            scoreBoard.style.removeProperty("opacity");
-            scoreBoard.style.removeProperty("overflow");
-            extraStats.style.removeProperty("max-height");
-            extraStats.style.removeProperty("opacity");
-        }
-    });
-
+    // Game Variables
     let totalScore = 0;
     let dartsThrown = 0;
     let currentTurnScore = 0;
@@ -44,11 +29,55 @@ document.addEventListener("DOMContentLoaded", () => {
     let highestAverage = null;
     let lowestAverage = null;
 
+    // Show setup menu
+    startGameButton.addEventListener("click", () => {
+        setupGameMenu.classList.remove("hidden");
+        setupGameMenu.classList.add("visible");
+    });
+
+    // Close setup menu
+    closeMenuButton.addEventListener("click", () => {
+        setupGameMenu.classList.remove("visible");
+        setupGameMenu.classList.add("hidden");
+    });
+
+    // Select game type
+    gameTypeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            gameTypeButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+            selectedGameType = button.dataset.type;
+        });
+    });
+
+    // Select number of players
+    playerButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            playerButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+            selectedPlayers = button.dataset.players;
+    });
+});
+
+    // Start the game
+    startGameSetupButton.addEventListener("click", () => {
+        if (selectedGameType && selectedPlayers) {
+            alert(`Starting game: ${selectedGameType} with ${selectedPlayers} players`);
+            setupGameMenu.classList.remove("visible");
+            setupGameMenu.classList.add("hidden");
+            resetGameStats(); // Reset stats for the new game
+        } else {
+            alert("Please select a game type and number of players.");
+        }
+    });
+
+    // Update the score and darts thrown display
     const updateScoreAndDarts = () => {
         scoreDisplay.textContent = totalScore;
         dartsThrownDisplay.textContent = dartsThrown;
     };
 
+    // Update scoreboard averages
     const updateScoreBoard = () => {
         one80Display.textContent = one80Count;
         const turns = Math.floor(dartsThrown / 3);
@@ -64,22 +93,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Update high and low averages
     const updateHighAndLowAverages = () => {
-        const currentTurnAverage = currentTurnScore;
-        if (highestAverage === null || currentTurnAverage > highestAverage) {
-            highestAverage = currentTurnAverage;
+        if (highestAverage === null || currentTurnScore > highestAverage) {
+            highestAverage = currentTurnScore;
             highestAverageDisplay.textContent = highestAverage.toFixed(2);
         }
-        if (lowestAverage === null || currentTurnAverage < lowestAverage) {
-            lowestAverage = currentTurnAverage;
+        if (lowestAverage === null || currentTurnScore < lowestAverage) {
+            lowestAverage = currentTurnScore;
             lowestAverageDisplay.textContent = lowestAverage.toFixed(2);
         }
     };
 
+    // Update last visit score
     const updateLastVisit = () => {
         lastVisitDisplay.textContent = currentTurnScore;
     };
 
+    // Handle dart hit
     const handleDart = (score) => {
         totalScore += score;
         dartsThrown++;
@@ -99,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Dartboard click event
     dartboard.addEventListener("click", (event) => {
         const target = event.target;
         if (target && target.dataset.score) {
@@ -107,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Handle miss button
     missButton.addEventListener("click", () => {
         dartsThrown++;
         currentTurnDarts++;
@@ -121,7 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const resetStats = () => {
+    // Reset game stats
+    const resetGameStats = () => {
         totalScore = 0;
         dartsThrown = 0;
         currentTurnScore = 0;
@@ -130,6 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
         highest3DartAverage = 0;
         highestAverage = null;
         lowestAverage = null;
+
         scoreDisplay.textContent = "0";
         dartsThrownDisplay.textContent = "0";
         averageDisplay.textContent = "0";
@@ -140,21 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lowestAverageDisplay.textContent = "0";
     };
 
-    const showCustomAlert = (message) => {
-        const alertBox = document.getElementById("customAlert");
-        alertBox.querySelector("p").textContent = message;
-        alertBox.style.display = "block";
-
-        document.getElementById("closeAlert").addEventListener("click", () => {
-            alertBox.style.display = "none";
-        });
-    };
-
-    document.getElementById("reset-stats-btn").addEventListener("click", () => {
-        resetStats();
-        showCustomAlert("Stats have been reset!");
-    });
-
+    // Initialize scoreboard
     updateScoreAndDarts();
     updateScoreBoard();
 });
